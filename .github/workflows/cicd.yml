@@ -7,8 +7,9 @@ jobs:
   release:
       runs-on: windows-latest
       steps:
-        - uses: actions/checkout@v2
-        - uses: azure/synapse-workspace-deployment@release-1.0
+        - uses: actions/checkout@v3
+        
+        - uses: azure/synapse-workspace-deployment@v1.8.0
           with:
             TargetWorkspaceName: 'clandis-dev'
             TemplateFile: './clandis-dev/TemplateForWorkspace.json'
