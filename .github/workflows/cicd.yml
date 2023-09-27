@@ -21,5 +21,4 @@ jobs:
             clientSecret:  ${{secrets.AZURE_CLIENT_SECRET}}
             subscriptionId: 'd5736eb1-f851-4ec3-a2c5-ac8d84d029e2'
             tenantId: 'ed9aa516-5358-4016-a8b2-b6ccb99142d0'
-            DeleteArtifactsNotInTemplate: 'true'
-            managedIdentity: 'False'
+            operation: 'validateDeploy'
