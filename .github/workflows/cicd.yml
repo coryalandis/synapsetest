@@ -1,0 +1,24 @@
+name: workspace deployment
+
+on:
+  push:
+    branches: [ "workspace_publish" ]
+jobs:
+  release:
+      runs-on: windows-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: azure/synapse-workspace-deployment@release-1.0
+          with:
+            TargetWorkspaceName: 'clandis-dev'
+            TemplateFile: './clandis-dev/TemplateForWorkspace.json'
+            ParametersFile: './clandis-dev/TemplateParametersForWorkspace.json'
+            #OverrideArmParameters: './path of the parameters.yaml'
+            environment: 'Azure Public'
+            resourceGroup: 'clandis-test'
+            clientId: ${{secrets.AZURE_CLIENT_ID}}
+            clientSecret:  ${{secrets.AZURE_CLIENT_SECRET}}
+            subscriptionId: 'd5736eb1-f851-4ec3-a2c5-ac8d84d029e2'
+            tenantId: 'ed9aa516-5358-4016-a8b2-b6ccb99142d0'
+            DeleteArtifactsNotInTemplate: 'true'
+            managedIdentity: 'False'
