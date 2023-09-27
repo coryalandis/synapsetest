@@ -9,7 +9,7 @@ jobs:
       steps:
         - uses: actions/checkout@v3
         
-        - uses: azure/synapse-workspace-deployment
+        - uses: azure/synapse-workspace-deployment@V1.8.0
           with:
             TargetWorkspaceName: 'clandis-dev'
             TemplateFile: './clandis-dev/TemplateForWorkspace.json'
